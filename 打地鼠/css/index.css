@@ -155,3 +155,71 @@
     height: 80px;
     background: url("../images/mouse.png") 5px -15px no-repeat;
 }
+.description{
+    display: none;
+    width: 800px;
+    height: 500px;
+    background-color:rgb(147, 174, 79);
+}
+.description h3{
+    padding-top:40px;
+    margin-bottom: 20px;
+    font-size: 35px;
+    color:yellow;
+    font-weight: bolder;
+    letter-spacing: 0.3em;
+    text-align: center;
+}
+.regular li{
+    font-size: 20px;
+    font-weight:bolder;
+    font-family:simHei;
+    line-height: 25px;
+    padding-left: 80px;
+}
+.scrolls div img,.description div img{
+    padding-left: 20px;
+    width: 50px;
+    height: 70px;
+    float:left;
+}
+.scrolls ul{
+    margin-left: 70px;
+}
+.scrolls li{
+    display:inline-block;
+    height: 30px;
+    width: 300px;
+    font-size:18px;
+    margin-top:10px;
+    line-height: 30px;
+}
+.scrolls li img{
+    height: 30px;
+    width: 30px;
+}
+.scrolls li strong{
+    color:yellow;
+}
+.scrolls li span{
+   margin-left: 10px;
+}
+.menus{
+    width: 200px;
+    height: 40px;
+    margin:50px auto;
+    background-color: green;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 3px 2px #eaeaea;
+    cursor: pointer;
+}
+.menus span{
+    display:block;
+    font-size: 30px;
+    letter-spacing: 0.2em;
+}
+.menus:hover{
+    background-color: yellow;
+}

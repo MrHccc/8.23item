@@ -49,7 +49,6 @@ menus.onclick=function(){
     description.style.display="none"
     index.style.display="block";
 }
-
 hnews.onclick = function() {
     index.style.display = "none";
     center.style.display = "block";
@@ -96,13 +95,10 @@ hnews.onclick = function() {
             var mouse = document.getElementById("con").getElementsByTagName("span");
             var arr = [];
             var timer = null;
-<<<<<<< HEAD
 
 
 
             // 主功能
-=======
->>>>>>> 0bec47c7bdf976826182e99eba414557bed5d246
             function start() {
                 ran = Math.floor(Math.random() * 9);
                 ranPos = Math.ceil(Math.random() * 5);
@@ -114,47 +110,21 @@ hnews.onclick = function() {
                
                 sport(mouse[ran],{"top" : 0},20);
                 // 回洞
-<<<<<<< HEAD
                 timerReturn = setTimeout(returnMove,3000);
                 // 出现
-=======
-                timerReturn = setTimeout(function() {
-                    sport(mouse[arr[0]],{"top" : 80},20);
-                    cons[arr[0]].style.backgroundColor = "#666";
-                    arr.shift();
-                },3000);
-
->>>>>>> 0bec47c7bdf976826182e99eba414557bed5d246
                 timerMouse = setInterval(start,1000);
 
 
                 for(var i = 0; i < cons.length; i++){
-<<<<<<< HEAD
                     mouse[i].style.background = "";
                     cons[i].onclick = function() {
                        for(var j = 0; j < arr.length; j++) {
                              if(this == cons[arr[j]]) {
                                 sport(mouse[arr[j]],{"top" : 80},20);
-=======
-                     mouse[i].style.background = "";
-                    cons[i].onclick = function() {
-                       for(var j = 0; j < arr.length; j++) {
-                             if(this == cons[arr[j]]) {
-                                // clearInterval(timerMouse);
-
-
-                                sport(mouse[arr[j]],{"top" : 80},20);
-
->>>>>>> 0bec47c7bdf976826182e99eba414557bed5d246
                                 mouse[arr[j]].style.background = "url('images/mouse.png') -400px -30px no-repeat";
                                // timer = setTimeout(function() {
                                //       sport(mouse[arr[j]],{"top" : 80},20);
                                //  },2000);
-<<<<<<< HEAD
-=======
-                               console.log(typeof arr[j]);
-
->>>>>>> 0bec47c7bdf976826182e99eba414557bed5d246
                                 var scoreVal = parseInt(score.innerHTML);
                                 scoreVal++;
                                 score.innerHTML = scoreVal;
@@ -166,89 +136,76 @@ hnews.onclick = function() {
                 console.log(arr);
             }start();
         }
-
-// 回洞函数
-function returnMove() {
-    sport(mouse[arr[0]],{"top" : 80},20);
-    cons[arr[0]].style.backgroundColor = "#666";
-    arr.shift();
-}
-
-
-
-
-
-
-
-
-
-
-
-
-        // 用于动态变化标签的属性
-        // 运动的核心功能函数
-        function sport(ele, json, step, fn) {    // ele标签名、json对象、step步长、fn函数
-            // 清除计时器
-            clearInterval(ele.timer);
-            ele.timer = setInterval(function(){
-                // 所有的属性只有全部达到目标值时才允许清除计时器
-                var timerjudge = true;
-                for (var prop in json) {
-                    if(prop == "opacity"){
-                        var startVal = parseInt(getStyle(ele, prop) * 100);
-                    } else {
-                        var startVal = parseInt(getStyle(ele, prop));
-                    }
-                    var distance = Math.abs(json[prop] - startVal);
-                    speed = Math.ceil(distance / step);
-                    // console.log(speed);
-                    // 双方向运动判断
-                    if(startVal < json[prop]) {
-                        startVal += speed;
-                    } else {
-                        startVal -= speed;
-                    }
-                    // 自动贴合功能
-                    if(distance < 5) {
-                        startVal = json[prop];
-                    }
-                    // 只有任何一个属性没有达到终点，timerjudge为false
-                    if(startVal != json[prop]){
-                        timerjudge = false;
-                    }
-                    if(prop == "opacity"){
-                        ele.style[prop] = startVal / 100;
-                        ele.style["filter"] = "alpha(opacity=" + startVal + ")";
-                    } else {
-                        ele.style[prop] = startVal + "px";
-                    }
-                }
-                if(timerjudge) {
-                    clearInterval(ele.timer);
-                    // 实现回调函数
-                    if(fn){
-                        fn();
-                    }
-                }
-            }, 40);
-        }
-        /* 
-        * 功能：获取渲染后标签的样式
-        * 参数：ele是标签对象，prop是获取的样式属性
-        */
-        function getStyle(ele, prop) {
-            var proValue = null;
-            if(document.defaultView) {
-                // 谷歌等浏览器的样式获取
-                proValue = document.defaultView.getComputedStyle(ele)[prop];
-            } else {
-                // IE低版本下的样式获取
-                proValue = ele.currentStyle[prop];
-            }
-            return proValue;
+        // 回洞函数
+        function returnMove() {
+            sport(mouse[arr[0]],{"top" : 80},20);
+            cons[arr[0]].style.backgroundColor = "#666";
+            arr.shift();
         }
     },1000);
 }
 
 
 
+// 用于动态变化标签的属性
+// 运动的核心功能函数
+function sport(ele, json, step, fn) {    // ele标签名、json对象、step步长、fn函数
+    // 清除计时器
+    clearInterval(ele.timer);
+    ele.timer = setInterval(function(){
+        // 所有的属性只有全部达到目标值时才允许清除计时器
+        var timerjudge = true;
+        for (var prop in json) {
+            if(prop == "opacity"){
+                var startVal = parseInt(getStyle(ele, prop) * 100);
+            } else {
+                var startVal = parseInt(getStyle(ele, prop));
+            }
+            var distance = Math.abs(json[prop] - startVal);
+            speed = Math.ceil(distance / step);
+            // console.log(speed);
+            // 双方向运动判断
+            if(startVal < json[prop]) {
+                startVal += speed;
+            } else {
+                startVal -= speed;
+            }
+            // 自动贴合功能
+            if(distance < 5) {
+                startVal = json[prop];
+            }
+            // 只有任何一个属性没有达到终点，timerjudge为false
+            if(startVal != json[prop]){
+                timerjudge = false;
+            }
+            if(prop == "opacity"){
+                ele.style[prop] = startVal / 100;
+                ele.style["filter"] = "alpha(opacity=" + startVal + ")";
+            } else {
+                ele.style[prop] = startVal + "px";
+            }
+        }
+        if(timerjudge) {
+            clearInterval(ele.timer);
+            // 实现回调函数
+            if(fn){
+                fn();
+            }
+        }
+    }, 40);
+}
+/* 
+* 功能：获取渲染后标签的样式
+* 参数：ele是标签对象，prop是获取的样式属性
+*/
+function getStyle(ele, prop) {
+    var proValue = null;
+    if(document.defaultView) {
+        // 谷歌等浏览器的样式获取
+        proValue = document.defaultView.getComputedStyle(ele)[prop];
+    } else {
+        // IE低版本下的样式获取
+        proValue = ele.currentStyle[prop];
+    }
+    return proValue;
+}

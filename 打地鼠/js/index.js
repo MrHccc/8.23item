@@ -32,6 +32,8 @@ hnews.onclick = function() {
                 proBar.style.width = proWidth + "px";
                 if (proWidth == 0) {
                     clearInterval(timerProBar);
+                    clearInterval(timerMouse);
+                    clearInterval(timerReturn);
                 }
             }
             // 90秒倒计时
@@ -54,10 +56,11 @@ hnews.onclick = function() {
             var cons = document.getElementById("con").getElementsByTagName("div");
             var mouse = document.getElementById("con").getElementsByTagName("span");
             var arr = [];
+            var timer = null;
             function start() {
                 ran = Math.floor(Math.random() * 9);
                 clearInterval(timerMouse);
-                cons[ran].style.backgroundColor = "orange";
+               
                 sport(mouse[ran],{"top" : 0},20);
                 // 回洞
                 timerReturn = setTimeout(function() {
@@ -65,31 +68,34 @@ hnews.onclick = function() {
                     cons[arr[0]].style.backgroundColor = "#666";
                     arr.shift();
                 },3000);
+
                 timerMouse = setInterval(start,1000);
                 for(var i = 0; i < cons.length; i++){
+                     mouse[i].style.background = "";
                     cons[i].onclick = function() {
-                        if(this == cons[arr[i]]) {
-                            // clearInterval(timerMouse);
-                            console.log("a");
-                            sport(cons[arr[i]],{"top" : 80},20);
-                            var scoreVal = parseInt(score.innerHTML);
-                            scoreVal++;
-                            score.innerHTML = scoreVal;
-                            cons[ran].style.backgroundColor = "#666";
-                        }
+                       for(var j = 0; j < arr.length; j++) {
+                             if(this == cons[arr[j]]) {
+                                // clearInterval(timerMouse);
+
+
+                                sport(mouse[arr[j]],{"top" : 80},20);
+
+                                mouse[arr[j]].style.background = "url('images/mouse.png') -400px -30px no-repeat";
+                               // timer = setTimeout(function() {
+                               //       sport(mouse[arr[j]],{"top" : 80},20);
+                               //  },2000);
+                               console.log(typeof arr[j]);
+
+                                var scoreVal = parseInt(score.innerHTML);
+                                scoreVal++;
+                                score.innerHTML = scoreVal;
+                            }
+                       }
                     }
                 }
                 arr.push(parseInt(ran));
                 console.log(arr);
             }start();
-            // function clickRight() {
-            //     // clearInterval(timerMouse);
-            //     sport(mouse[arr[i],{"top" : 80},20);
-            //     var scoreVal = parseInt(score.innerHTML);
-            //     scoreVal++;
-            //     score.innerHTML = scoreVal;
-            //     cons[ran].style.backgroundColor = "#666";
-            // }
         }
         // 用于动态变化标签的属性
         // 运动的核心功能函数

@@ -1,0 +1,157 @@
+.wrap {
+    position: relative;
+    width: 800px;
+    height: 500px;
+    margin: 80px auto;
+    border: 1px solid red;
+}
+/*开始页*/
+.index {
+    width: 800px;
+    height: 500px;
+}
+.index .middle {
+    position: relative;
+    height: 500px;
+    background: yellow;
+}
+.index .mic {
+    float: right;
+    overflow: hidden;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: orange;
+}
+.index .mic img {
+    width: 100%;
+    height: 100%;
+}
+.index .new, .index .detail, .index .out {
+    position: absolute;
+    right: 50px;
+    color: #fff;
+    width: 150px;
+    height: 50px;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px 3px #000;
+    background: skyblue;
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    -webkit-text-stroke: 1px blue;
+    cursor: pointer;
+}
+.index .new:hover, .index .detail:hover, .index .out:hover {
+    background-color: orange;
+}
+.index .new {
+    top: 150px;
+}
+.index .detail {
+    top: 250px;
+}
+.index .out {
+    top: 350px;
+}
+/*游戏中心*/
+.center {
+    position: relative;
+    display: none;
+    /*overflow: hidden;*/
+    width: 100%;
+    height: 100%;
+}
+.center h2 {
+    margin-top: 10px;
+    font-size: 60px;
+    text-align: center;
+}
+.center .countDown {
+    position: absolute;
+    top: 100px;
+    left: 250px;
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 25px;
+    z-index: 11;
+}
+.center .countDown span {
+    color: rgba(255, 255, 0, 0.8);
+    font-size: 250px;
+    line-height: 300px;
+}
+.center .pause {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    width: 30px;
+    height: 30px;
+    background: url("../images/icon_pause.png") center no-repeat;
+    background-size: 100%;
+    cursor: pointer;
+}
+.center .continue {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    width: 30px;
+    height: 30px;
+    background: url("../images/icon_play.png") center no-repeat;
+    background-size: 100%;
+    cursor: pointer;
+}
+.center .progress {
+    width: 486px;
+    margin: 30px auto;
+}
+.center .bar {
+    float: left;
+    width: 180px;
+    padding: 2px;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+.center .bar span {
+    float: right;
+    display: block;
+    width: 180px;
+    height: 20px;
+    background-color: #f00;
+    border-radius: 10px;
+}
+.center .fraction {
+    float: left;
+    width: 150px;
+    height: 20px;
+    margin-left: 30px;
+    line-height: 20px;
+    font-size: 20px;
+}
+.center .box {
+    height: 325px;
+    margin: 0 auto;
+}
+.center .box div {
+    overflow: hidden;
+    position: relative;
+    float: left;
+    width: 152px;
+    height: 80px;
+    margin-right: 57px;
+    margin-left: 57px;
+    margin-bottom: 40px;
+    background-color: #666;
+    border-radius: 50%;
+}
+.center .box div span {
+    display: block;
+    position: absolute;
+    top: 80px;
+    width: 152px;
+    height: 80px;
+    background: url("../images/mouse.png") 5px -15px no-repeat;
+}

@@ -96,10 +96,13 @@ hnews.onclick = function() {
             var mouse = document.getElementById("con").getElementsByTagName("span");
             var arr = [];
             var timer = null;
+<<<<<<< HEAD
 
 
 
             // 主功能
+=======
+>>>>>>> 0bec47c7bdf976826182e99eba414557bed5d246
             function start() {
                 ran = Math.floor(Math.random() * 9);
                 ranPos = Math.ceil(Math.random() * 5);
@@ -111,21 +114,47 @@ hnews.onclick = function() {
                
                 sport(mouse[ran],{"top" : 0},20);
                 // 回洞
+<<<<<<< HEAD
                 timerReturn = setTimeout(returnMove,3000);
                 // 出现
+=======
+                timerReturn = setTimeout(function() {
+                    sport(mouse[arr[0]],{"top" : 80},20);
+                    cons[arr[0]].style.backgroundColor = "#666";
+                    arr.shift();
+                },3000);
+
+>>>>>>> 0bec47c7bdf976826182e99eba414557bed5d246
                 timerMouse = setInterval(start,1000);
 
 
                 for(var i = 0; i < cons.length; i++){
+<<<<<<< HEAD
                     mouse[i].style.background = "";
                     cons[i].onclick = function() {
                        for(var j = 0; j < arr.length; j++) {
                              if(this == cons[arr[j]]) {
                                 sport(mouse[arr[j]],{"top" : 80},20);
+=======
+                     mouse[i].style.background = "";
+                    cons[i].onclick = function() {
+                       for(var j = 0; j < arr.length; j++) {
+                             if(this == cons[arr[j]]) {
+                                // clearInterval(timerMouse);
+
+
+                                sport(mouse[arr[j]],{"top" : 80},20);
+
+>>>>>>> 0bec47c7bdf976826182e99eba414557bed5d246
                                 mouse[arr[j]].style.background = "url('images/mouse.png') -400px -30px no-repeat";
                                // timer = setTimeout(function() {
                                //       sport(mouse[arr[j]],{"top" : 80},20);
                                //  },2000);
+<<<<<<< HEAD
+=======
+                               console.log(typeof arr[j]);
+
+>>>>>>> 0bec47c7bdf976826182e99eba414557bed5d246
                                 var scoreVal = parseInt(score.innerHTML);
                                 scoreVal++;
                                 score.innerHTML = scoreVal;
